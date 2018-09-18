@@ -8,9 +8,11 @@ description: >
 info: |
     ApplyOptionsToTag( tag, options )
 
-    ...
-    9. If tag matches neither the privateuse nor the grandfathered production, then
-    ...
+    9. If tag matches the grandfathered production,
+        a. Set tag to CanonicalizeLanguageTag(tag).
+    10. If language is not undefined,
+        a. If tag matches the privateuse or grandfathered production,
+            i. Set tag to language.
 
     ApplyUnicodeExtensionToTag( tag, options, relevantExtensionKeys )
 
@@ -43,12 +45,13 @@ const testData = [
             region: "DE",
             numberingSystem: "latn",
         },
-        canonical: "i-default",
+        canonical: "fr-Cyrl-DE-u-nu-latn",
         extensions: {
-            language: undefined,
-            script: undefined,
-            region: undefined,
-            numberingSystem: undefined,
+            baseName: "fr-Cyrl-DE",
+            language: "fr",
+            script: "Cyrl",
+            region: "DE",
+            numberingSystem: "latn",
         },
     },
 
@@ -61,11 +64,12 @@ const testData = [
             region: "US",
             numberingSystem: "latn",
         },
-        canonical: "en-GB-oxendict-u-nu-latn",
+        canonical: "fr-Cyrl-US-oxendict-u-nu-latn",
         extensions: {
-            language: "en",
-            script: undefined,
-            region: "GB",
+            baseName: "fr-Cyrl-US-oxendict",
+            language: "fr",
+            script: "Cyrl",
+            region: "US",
             numberingSystem: "latn",
         },
     },
@@ -79,12 +83,13 @@ const testData = [
             region: "FR",
             numberingSystem: "latn",
         },
-        canonical: "cel-gaulish",
+        canonical: "fr-Cyrl-FR-u-nu-latn",
         extensions: {
-            language: undefined,
-            script: undefined,
-            region: undefined,
-            numberingSystem: undefined,
+            baseName: "fr-Cyrl-FR",
+            language: "fr",
+            script: "Cyrl",
+            region: "FR",
+            numberingSystem: "latn",
         },
     },
 
@@ -97,11 +102,12 @@ const testData = [
             region: "ZZ",
             numberingSystem: "latn",
         },
-        canonical: "jbo-u-nu-latn",
+        canonical: "fr-Cyrl-ZZ-u-nu-latn",
         extensions: {
-            language: "jbo",
-            script: undefined,
-            region: undefined,
+            baseName: "fr-Cyrl-ZZ",
+            language: "fr",
+            script: "Cyrl",
+            region: "ZZ",
             numberingSystem: "latn",
         },
     },
@@ -112,6 +118,6 @@ for (const {tag, options, canonical, extensions} of testData) {
     assert.sameValue(loc.toString(), canonical);
 
     for (const [name, value] of Object.entries(extensions)) {
-        assert.sameValue(loc[name], value);
+        assert.sameValue(loc[name], value, `${name} should be ${value}`);
     }
 }

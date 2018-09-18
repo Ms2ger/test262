@@ -27,6 +27,11 @@ const validLanguageOptions = [
   [null, 'null'],
   ['zh-cmn', 'cmn'],
   ['ZH-CMN', 'cmn'],
+  // Irregular grandfathered language tag.
+  ["i-klingon", "tlh"],
+  // Regular grandfathered language tag.
+  ["zh-min", "zh-min"],
+  ["zh-min-nan", "nan"],
   ['abcd', 'abcd'],
   ['abcde', 'abcde'],
   ['abcdef', 'abcdef'],

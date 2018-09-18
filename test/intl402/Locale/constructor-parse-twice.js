@@ -13,26 +13,23 @@ info: |
     30. Let r be ! ApplyUnicodeExtensionToTag(tag, opt, relevantExtensionKeys).
 
     ApplyOptionsToTag( tag, options )
-    9. If tag matches neither the privateuse nor the grandfathered production, then
-    10. Return CanonicalizeLanguageTag(tag).
+    9. If tag matches the grandfathered production,
+        a. Set tag to CanonicalizeLanguageTag(tag).
 features: [Intl.Locale]
 ---*/
 
 const testData = [
-    // Irregular grandfathered tags.
-
-    // "en-GB-oed" is a grandfathered tag, so we can't add "US". After it is
-    // canonicalized to "en-GB-oxendict" we can append "u-ca-gregory".
+    // Irregular grandfathered tag.
     {
         tag: "en-GB-oed",
         options: {
             region: "US",
             calendar: "gregory",
         },
-        canonical: "en-GB-oxendict-u-ca-gregory",
+        canonical: "en-US-oxendict-u-ca-gregory",
     },
 
-    // Canonicalized version of the above, which we can add "US" to.
+    // Canonicalized version of the above.
     {
         tag: "en-GB-oxendict",
         options: {
@@ -44,15 +41,13 @@ const testData = [
 
     // Regular grandfathered tags.
 
-    // "no-bok" is a grandfathered, so "NO"/"SE" isn't added. After
-    // canonicalization we can append "u-ca-gregory".
     {
         tag: "no-bok",
         options: {
             region: "NO",
             calendar: "gregory",
         },
-        canonical: "nb-u-ca-gregory",
+        canonical: "nb-NO-u-ca-gregory",
     },
 
     {
@@ -61,11 +56,11 @@ const testData = [
             region: "SE",
             calendar: "gregory",
         },
-        canonical: "nb-u-ca-gregory",
+        canonical: "nb-SE-u-ca-gregory",
     },
 
-    // "no-bok-NO" isn't a grandfathered tag, so we can replace "NO" with "SE"
-    // and can also append "u-ca-gregory".
+    // Not grandfathered.
+
     {
         tag: "no-bok-NO",
         options: {
@@ -75,8 +70,6 @@ const testData = [
         canonical: "no-bok-SE-u-ca-gregory",
     },
 
-    // "no-bok-SE" isn't a grandfathered tag, so we can replace "SE" with "NO"
-    // and can also append "u-ca-gregory".
     {
         tag: "no-bok-SE",
         options: {

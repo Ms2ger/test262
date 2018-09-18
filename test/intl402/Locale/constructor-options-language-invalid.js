@@ -46,13 +46,6 @@ const invalidLanguageOptions = [
   "fr-a-asdf",
   "fr-x-private",
 
-  // Irregular grandfathered language tag.
-  "i-klingon",
-
-  // Regular grandfathered language tag.
-  "zh-min",
-  "zh-min-nan",
-
   // Reserved with extended language subtag
   "abcd-US",
   "abcde-US",
