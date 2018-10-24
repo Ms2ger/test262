@@ -4,11 +4,9 @@
 
 // Flags: --harmony-intl-segmenter
 
-// Segmenter constructor can't be called as function.
-assertThrows(() => Intl.Segmenter(["sr"]), TypeError);
+// test/intl402/Segmenter/constructor/constructor/newtarget-undefined.js 
 
-// Invalid locale string.
-assertThrows(() => new Intl.Segmenter(["abcdefghi"]), RangeError);
+// test/intl402/Segmenter/constructor/constructor/locales-invalid.js 
 
 assertDoesNotThrow(() => new Intl.Segmenter(["sr"], {}), TypeError);
 
@@ -162,55 +160,5 @@ assertDoesNotThrow(
         })
 );
 
-// propagate exception from getter
-assertThrows(
-    () =>
-        new Intl.Segmenter(undefined, {
-            get localeMatcher() {
-                throw new TypeError("");
-            }
-        }),
-    TypeError
-);
-assertThrows(
-    () =>
-        new Intl.Segmenter(undefined, {
-            get lineBreakStyle() {
-                throw new TypeError("");
-            }
-        }),
-    TypeError
-);
-assertThrows(
-    () =>
-        new Intl.Segmenter(undefined, {
-            get granularity() {
-                throw new TypeError("");
-            }
-        }),
-    TypeError
-);
-
-// Throws only once during construction.
-// Check for all getters to prevent regression.
-// Preserve the order of getter initialization.
-let getCount = 0;
-let localeMatcher = -1;
-let lineBreakStyle = -1;
-let granularity = -1;
-
-new Intl.Segmenter(["en-US"], {
-    get localeMatcher() {
-        localeMatcher = ++getCount;
-    },
-    get lineBreakStyle() {
-        lineBreakStyle = ++getCount;
-    },
-    get granularity() {
-        granularity = ++getCount;
-    }
-});
-
-assertEquals(1, localeMatcher);
-assertEquals(2, lineBreakStyle);
-assertEquals(3, granularity);
+// test/intl402/Segmenter/constructor/constructor/options-throwing-getters.js 
+// test/intl402/Segmenter/constructor/constructor/options-order.js 
