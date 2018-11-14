@@ -8,7 +8,7 @@
 
 // test/intl402/Segmenter/constructor/constructor/locales-invalid.js 
 
-assertDoesNotThrow(() => new Intl.Segmenter(["sr"], {}), TypeError);
+assertDoesNotThrow(() => new Intl.Segmenter(["sr"], {}));
 
 assertDoesNotThrow(() => new Intl.Segmenter([], {}));
 
@@ -22,47 +22,10 @@ assertDoesNotThrow(() => new Intl.Segmenter(["sr"]));
 
 assertDoesNotThrow(() => new Intl.Segmenter());
 
-assertDoesNotThrow(
-    () =>
-        new Intl.Segmenter(["sr"], {
-            lineBreakStyle: "strict",
-            granularity: "grapheme"
-        })
-);
-
-assertDoesNotThrow(
-    () => new Intl.Segmenter(["sr"], { granularity: "sentence" })
-);
-
-assertDoesNotThrow(() => new Intl.Segmenter(["sr"], { granularity: "word" }));
-
-assertDoesNotThrow(
-    () => new Intl.Segmenter(["sr"], { granularity: "grapheme" })
-);
-
-assertDoesNotThrow(() => new Intl.Segmenter(["sr"], { granularity: "line" }));
-
-assertThrows(
-    () => new Intl.Segmenter(["sr"], { granularity: "standard" }),
-    RangeError
-);
-
-assertDoesNotThrow(
-    () => new Intl.Segmenter(["sr"], { lineBreakStyle: "normal" })
-);
-
-assertDoesNotThrow(
-    () => new Intl.Segmenter(["sr"], { lineBreakStyle: "strict" })
-);
-
-assertDoesNotThrow(
-    () => new Intl.Segmenter(["sr"], { lineBreakStyle: "loose" })
-);
-
-assertThrows(
-    () => new Intl.Segmenter(["sr"], { lineBreakStyle: "giant" }),
-    RangeError
-);
+// test/intl402/Segmenter/constructor/constructor/options-granularity-valid.js
+// test/intl402/Segmenter/constructor/constructor/options-granularity-invalid.js
+// test/intl402/Segmenter/constructor/constructor/options-lineBreakStyle-valid.js
+// test/intl402/Segmenter/constructor/constructor/options-lineBreakStyle-invalid.js
 
 assertDoesNotThrow(
     () =>
