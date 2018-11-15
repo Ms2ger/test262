@@ -4,14 +4,4 @@
 
 // Flags: --harmony-intl-segmenter
 
-// Test subclassing of Segmenter
-class CustomSegmenter extends Intl.Segmenter {
-  constructor(locales, options) {
-    super(locales, options);
-    this.isCustom = true;
-  }
-}
-
-const seg = new CustomSegmenter("zh");
-assertEquals(true, seg.isCustom, "Custom property");
-assertEquals(Object.getPrototypeOf(seg), CustomSegmenter.prototype, "Prototype");
+// test/intl402/Segmenter/constructor/constructor/subclassing.js
