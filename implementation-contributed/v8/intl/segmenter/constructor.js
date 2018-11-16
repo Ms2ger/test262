@@ -8,19 +8,7 @@
 
 // test/intl402/Segmenter/constructor/constructor/locales-invalid.js 
 
-assertDoesNotThrow(() => new Intl.Segmenter(["sr"], {}));
-
-assertDoesNotThrow(() => new Intl.Segmenter([], {}));
-
-assertDoesNotThrow(() => new Intl.Segmenter(["fr", "ar"], {}));
-
-assertDoesNotThrow(() => new Intl.Segmenter({ 0: "ja", 1: "fr" }, {}));
-
-assertDoesNotThrow(() => new Intl.Segmenter({ 1: "ja", 2: "fr" }, {}));
-
-assertDoesNotThrow(() => new Intl.Segmenter(["sr"]));
-
-assertDoesNotThrow(() => new Intl.Segmenter());
+// test/intl402/Segmenter/constructor/constructor/locales-valid.js
 
 // test/intl402/Segmenter/constructor/constructor/options-granularity-valid.js
 // test/intl402/Segmenter/constructor/constructor/options-granularity-invalid.js

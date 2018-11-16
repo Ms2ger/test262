@@ -12,23 +12,24 @@ features: [Intl.Segmenter]
 ---*/
 
 const tests = [
-  [undefined, "undefined"],
-  [null, "null"],
-  [true, "true"],
-  [false, "false"],
-  [12, "12"],
-  [1.23, "1.23"],
-  [["a", "b"], "a"],
-  [{}, "["], // "[object Object]"
+  [[], "undefined"],
+  [[undefined], "undefined"],
+  [[null], "null"],
+  [[true], "true"],
+  [[false], "false"],
+  [[12], "12"],
+  [[1.23], "1.23"],
+  [[["a", "b"]], "a"],
+  [[{}], "["], // "[object Object]"
 ];
 
 const segmenter = new Intl.Segmenter("en", { "granularity": "word" });
-for (const [argument, expected] of tests) {
-  const iterator = segmenter.segment(argument);
+for (const [args, expected] of tests) {
+  const iterator = segmenter.segment(...args);
   const result = iterator.next().value;
-  assert.sameValue(result.segment, expected, `Expected segment "${expected}", found "${result.segment}" for argument ${argument}`);
-  assert(["word", "none"].includes(result.breakType), `Expected valid breakType, found "${result.breakType}" for argument ${argument}`);
-  assert.sameValue(result.position, expected.length, `Expected position ${expected.length}, found ${result.position} for argument ${argument}`);
+  assert.sameValue(result.segment, expected, `Expected segment "${expected}", found "${result.segment}" for arguments ${args}`);
+  assert(["word", "none"].includes(result.breakType), `Expected valid breakType, found "${result.breakType}" for arguments ${args}`);
+  assert.sameValue(result.position, expected.length, `Expected position ${expected.length}, found ${result.position} for arguments ${args}`);
 }
 
 const symbol = Symbol();
