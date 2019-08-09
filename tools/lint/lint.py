@@ -98,12 +98,17 @@ if __name__ == '__main__':
     all_errors = lint(files)
     unexpected_errors = dict(all_errors)
 
+    print(all_errors)
+    print(unexpected_errors)
+    print(exceptions)
     for file_name, failures in all_errors.items():
         if file_name not in exceptions:
             continue
         if set(failures.keys()) == exceptions[file_name]:
             del unexpected_errors[file_name]
 
+    print(all_errors)
+    print(unexpected_errors)
     error_count = len(unexpected_errors)
     print('Linting complete. %s %s found.' % (error_count, ie.plural('error', error_count)))
 

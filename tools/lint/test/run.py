@@ -74,6 +74,12 @@ def create_file_test(name, fspath):
             contents = f.read()
         expected, input = contents.split('^ expected errors | v input\n')
         expected = expected.split()
+        #print(20*">" + "expected")
+        #print(expected)
+        #print(20*"<" + "expected")
+        #print(20*">" + "input")
+        #print(input)
+        #print(20*"<" + "input")
         tmp_file = self.fixture(name, input)
         result = self.lint([tmp_file])
         if len(expected) == 0:
@@ -82,7 +88,13 @@ def create_file_test(name, fspath):
         else:
             self.assertNotEqual(result['returncode'], 0)
             stderr = result['stderr'].decode("utf-8")
+            #print(20*">" + "stderr")
+            #print(stderr)
+            #print(20*"<" + "stderr")
             for err in expected:
+                #print(20*">" + "err")
+                #print(err)
+                #print(20*"<" + "err")
                 self.assertIn(err, stderr)
 
     return test

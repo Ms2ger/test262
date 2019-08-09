@@ -18,6 +18,7 @@ class CheckNegative(Check):
             return
 
         negative = meta['negative']
+        print(negative)
         if not isinstance(negative, dict):
             return '"negative" must be a dictionary with fields "type" and "phase"'
 
@@ -27,6 +28,7 @@ class CheckNegative(Check):
         if not 'phase' in negative:
             return '"negative" must specify a "phase" field'
 
+        print(negative["phase"] in ["parse", "resolution", "runtime"])
         if negative["phase"] not in ["parse", "resolution", "runtime"]:
             return '"phase" must be one of ["parse", "resolution", "runtime"]'
 
