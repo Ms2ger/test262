@@ -117,6 +117,13 @@ explicit-resource-management
 # https://github.com/tc39/proposal-float16array
 Float16Array
 
+Tuple
+Iterator
+Record
+ReadableStream
+AsyncIterator
+Intl
+
 ## Standard language features
 #
 # Language features that have been included in a published version of the
