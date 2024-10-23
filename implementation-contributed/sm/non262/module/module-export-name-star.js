@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - module
 description: |

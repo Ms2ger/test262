@@ -6,7 +6,7 @@ info: |
   Iterator.from throws when called with a non-object.
 
     Iterator is not enabled unconditionally
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

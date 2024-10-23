@@ -4,7 +4,7 @@
 /*---
 description: |
   `name` property of Iterator.prototype.find.
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

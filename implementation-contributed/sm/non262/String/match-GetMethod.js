@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [deepEqual.js, non262-String-shell.js, non262-shell.js]
+includes: [deepEqual.js, sm/non262-String-shell.js, sm/non262-shell.js]
 flags:
 - noStrict
 description: |

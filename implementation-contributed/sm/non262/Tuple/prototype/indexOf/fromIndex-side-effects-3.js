@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf - side effects produced by step 1 are visible when an exception occurs
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

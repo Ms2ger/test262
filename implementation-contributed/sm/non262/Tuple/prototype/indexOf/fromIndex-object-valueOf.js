@@ -5,7 +5,7 @@
 esid: sec-array.prototype.indexof
 description: |
   Tuple.prototype.indexOf - value of 'fromIndex' is an Object, which has an own valueOf method
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

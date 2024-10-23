@@ -5,7 +5,7 @@
 /*---
 flags:
 - onlyStrict
-includes: [detachArrayBuffer.js, non262-extensions-shell.js, non262-shell.js]
+includes: [detachArrayBuffer.js, sm/non262-extensions-shell.js, sm/non262-shell.js]
 description: |
   pending
 esid: pending

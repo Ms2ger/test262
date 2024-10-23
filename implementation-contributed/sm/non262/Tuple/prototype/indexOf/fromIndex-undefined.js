@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf returns 0 if fromIndex is 'undefined'
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

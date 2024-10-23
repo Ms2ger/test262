@@ -6,7 +6,7 @@ info: |
   Iterator.from returns an iterator wrapper if O is not an iterable.
 
     Iterator is not enabled unconditionally
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

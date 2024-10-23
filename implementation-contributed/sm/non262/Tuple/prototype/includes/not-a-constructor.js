@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.includes does not implement [[Construct]], is not new-able
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

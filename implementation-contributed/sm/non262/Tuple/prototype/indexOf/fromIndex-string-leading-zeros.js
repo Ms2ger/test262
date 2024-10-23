@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf - value of 'fromIndex' which is a string containing a number with leading zeros
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

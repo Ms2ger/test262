@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [compareArray.js, deepEqual.js, non262-JSON-shell.js, non262-shell.js]
+includes: [compareArray.js, deepEqual.js, sm/non262-JSON-shell.js, sm/non262-shell.js]
 flags:
 - noStrict
 description: |

@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf - value of 'fromIndex' is a string containing -Infinity
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

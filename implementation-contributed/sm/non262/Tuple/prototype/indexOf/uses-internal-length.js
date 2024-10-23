@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf - 'length' is own data property that overrides an inherited data property on an Tuple
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

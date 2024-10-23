@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf applied to undefined throws a TypeError
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

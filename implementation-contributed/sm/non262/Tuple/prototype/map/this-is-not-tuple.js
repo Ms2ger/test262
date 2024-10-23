@@ -6,7 +6,7 @@ description: |
   Throws a TypeError exception when `this` is not a Tuple
 features:
 - Tuple
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 ---*/

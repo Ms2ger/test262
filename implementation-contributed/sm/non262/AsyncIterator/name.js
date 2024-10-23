@@ -6,7 +6,7 @@ info: |
   The "name" property of AsyncIterator
 
     AsyncIterator is not enabled unconditionally
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

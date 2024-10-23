@@ -8,7 +8,7 @@ description: |
 features:
 - Iterator
 - iterator-helpers
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 ---*/

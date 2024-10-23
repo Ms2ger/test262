@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-includes: [detachArrayBuffer.js, non262-shell.js]
+includes: [detachArrayBuffer.js, sm/non262-shell.js]
 flags:
 - noStrict
 description: |

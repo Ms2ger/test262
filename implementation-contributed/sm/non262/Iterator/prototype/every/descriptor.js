@@ -6,7 +6,7 @@ info: |
   Descriptor property of Iterator.prototype.every
 
     Iterator is not enabled unconditionally
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

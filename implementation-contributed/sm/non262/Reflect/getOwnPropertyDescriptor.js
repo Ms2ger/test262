@@ -3,7 +3,7 @@
  * http://creativecommons.org/licenses/publicdomain/
  */
 /*---
-includes: [deepEqual.js, non262-Reflect-shell.js, non262-shell.js]
+includes: [deepEqual.js, sm/non262-Reflect-shell.js, sm/non262-shell.js]
 flags:
 - noStrict
 description: |

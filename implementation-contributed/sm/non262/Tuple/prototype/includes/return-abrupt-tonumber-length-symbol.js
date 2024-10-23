@@ -4,7 +4,7 @@
 /*---
 description: |
   Return abrupt from ToNumber(symbol "length")
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

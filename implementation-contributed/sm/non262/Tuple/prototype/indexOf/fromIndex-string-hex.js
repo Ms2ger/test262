@@ -5,7 +5,7 @@
 esid: sec-array.prototype.indexof
 description: |
   Tuple.prototype.indexOf - value of 'fromIndex' is a string containing a hex number
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

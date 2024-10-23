@@ -5,7 +5,7 @@
 esid: sec-array.prototype.includes
 description: |
   handle Infinity values for fromIndex
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:

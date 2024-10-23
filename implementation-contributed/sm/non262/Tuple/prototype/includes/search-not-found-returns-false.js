@@ -4,7 +4,7 @@
 /*---
 description: |
   returns false if the element is not found
-includes: [non262-shell.js]
+includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:
