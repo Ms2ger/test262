@@ -14,16 +14,16 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(constructor.prototype.map.length, 1);
 
     // Basic tests.
-    assert.deepEqual(new constructor([1, 3, 5]).map(v => v * 2), new constructor([2,6,10]));
-    assert.deepEqual(new constructor([-1, 13, 5]).map(v => v - 2), new constructor([-3, 11, 3]));
-    assert.deepEqual(new constructor(10).map(v => v), new constructor(10));
-    assert.deepEqual(new constructor().map(v => v + 1), new constructor);
-    assert.deepEqual(new constructor([1,2,3]).map(v => v), new constructor([1,2,3]));
+    assert.compareArray(new constructor([1, 3, 5]).map(v => v * 2), new constructor([2,6,10]));
+    assert.compareArray(new constructor([-1, 13, 5]).map(v => v - 2), new constructor([-3, 11, 3]));
+    assert.compareArray(new constructor(10).map(v => v), new constructor(10));
+    assert.compareArray(new constructor().map(v => v + 1), new constructor);
+    assert.compareArray(new constructor([1,2,3]).map(v => v), new constructor([1,2,3]));
 
     var arr = new constructor([1, 2, 3, 4, 5]);
     var sum = 0;
     var count = 0;
-    assert.deepEqual(arr.map((v, k, o) => {
+    assert.compareArray(arr.map((v, k, o) => {
         count++;
         sum += v;
         assert.sameValue(k, v - 1);
@@ -35,7 +35,7 @@ for (var constructor of anyTypedArrayConstructors) {
 
     // Test that changing elements that have been visited does not affect the result.
     var changeArr = new constructor([1,2,3,4,5]);
-    assert.deepEqual(arr.map((v,k) => {
+    assert.compareArray(arr.map((v,k) => {
         changeArr[k] = v + 1;
         return v;
     }), new constructor([1,2,3,4,5]));
@@ -43,13 +43,13 @@ for (var constructor of anyTypedArrayConstructors) {
     // Tests for `thisArg` argument.
     function assertThisArg(thisArg, thisValue) {
         // In sloppy mode, `this` could be global object or a wrapper of `thisArg`.
-        assert.deepEqual(arr.map(function(v) {
+        assert.compareArray(arr.map(function(v) {
             assert.deepEqual(this, thisValue);
             return v;
         }, thisArg), arr);
 
         // In strict mode, `this` strictly equals `thisArg`.
-        assert.deepEqual(arr.map(function(v) {
+        assert.compareArray(arr.map(function(v) {
             "use strict";
             assert.deepEqual(this, thisArg);
             return v;
@@ -57,7 +57,7 @@ for (var constructor of anyTypedArrayConstructors) {
 
         // Passing `thisArg` has no effect if callback is an arrow function.
         var self = this;
-        assert.deepEqual(arr.map((v) => {
+        assert.compareArray(arr.map((v) => {
             assert.sameValue(this, self);
             return v;
         }, thisArg), arr);
@@ -113,7 +113,7 @@ for (var constructor of anyTypedArrayConstructors) {
     if (typeof newGlobal === "function") {
         var map = newGlobal()[constructor.name].prototype.map;
         var sum = 0;
-        assert.deepEqual(map.call(new constructor([1, 2, 3]), v => sum += v), new constructor([1,3,6]));
+        assert.compareArray(map.call(new constructor([1, 2, 3]), v => sum += v), new constructor([1,3,6]));
         assert.sameValue(sum, 6);
     }
 
@@ -127,7 +127,7 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Test that the length getter is never called.
-    assert.deepEqual(Object.defineProperty(new constructor([1, 2, 3]), "length", {
+    assert.compareArray(Object.defineProperty(new constructor([1, 2, 3]), "length", {
         get() {
             throw new Error("length accessor called");
         }
@@ -139,15 +139,15 @@ for (var constructor of anyTypedArrayConstructors) {
     assert.sameValue(constructor.prototype.filter.length, 1)
 
     // Basic tests.
-    assert.deepEqual(new constructor([1,2,3]).filter(x => x == x), new constructor([1,2,3]));
-    assert.deepEqual(new constructor([1,2,3,4]).filter(x => x % 2 == 0), new constructor([2,4]));
-    assert.deepEqual(new constructor([1,2,3,4,5]).filter(x => x < 4), new constructor([1,2,3]));
-    assert.deepEqual(new constructor().filter(x => x * 2 == 4), new constructor());
+    assert.compareArray(new constructor([1,2,3]).filter(x => x == x), new constructor([1,2,3]));
+    assert.compareArray(new constructor([1,2,3,4]).filter(x => x % 2 == 0), new constructor([2,4]));
+    assert.compareArray(new constructor([1,2,3,4,5]).filter(x => x < 4), new constructor([1,2,3]));
+    assert.compareArray(new constructor().filter(x => x * 2 == 4), new constructor());
 
     var arr = new constructor([1,2,3,4,5]);
     var sum = 0;
     var count = 0;
-    assert.deepEqual(arr.filter((v, k, o) => {
+    assert.compareArray(arr.filter((v, k, o) => {
         count++;
         sum += v;
         assert.sameValue(k, v - 1);
@@ -159,7 +159,7 @@ for (var constructor of anyTypedArrayConstructors) {
 
     // Test that changing elements that have been visited does not affect the result.
     var changeArr = new constructor([1,2,3,4,5]);
-    assert.deepEqual(arr.filter((v,k) => {
+    assert.compareArray(arr.filter((v,k) => {
         changeArr[k] = v + 1;
         return true;
     }), new constructor([1,2,3,4,5]));
@@ -167,13 +167,13 @@ for (var constructor of anyTypedArrayConstructors) {
     // Tests for `thisArg` argument.
     function assertThisArg(thisArg, thisValue) {
         // In sloppy mode, `this` could be global object or a wrapper of `thisArg`.
-        assert.deepEqual(arr.filter(function(v) {
+        assert.compareArray(arr.filter(function(v) {
             assert.deepEqual(this, thisValue);
             return v;
         }, thisArg), arr);
 
         // In strict mode, `this` strictly equals `thisArg`.
-        assert.deepEqual(arr.filter(function(v) {
+        assert.compareArray(arr.filter(function(v) {
             "use strict";
             assert.deepEqual(this, thisArg);
             return v;
@@ -181,7 +181,7 @@ for (var constructor of anyTypedArrayConstructors) {
 
         // Passing `thisArg` has no effect if callback is an arrow function.
         var self = this;
-        assert.deepEqual(arr.filter((v) => {
+        assert.compareArray(arr.filter((v) => {
             assert.sameValue(this, self);
             return v;
         }, thisArg), arr);
@@ -237,7 +237,7 @@ for (var constructor of anyTypedArrayConstructors) {
     if (typeof newGlobal === "function") {
         var filter = newGlobal()[constructor.name].prototype.filter;
         var sum = 0;
-        assert.deepEqual(filter.call(new constructor([1, 2, 3]), v => {sum += v; return true}),
+        assert.compareArray(filter.call(new constructor([1, 2, 3]), v => {sum += v; return true}),
         new constructor([1,2,3]));
         assert.sameValue(sum, 6);
     }
@@ -252,7 +252,7 @@ for (var constructor of anyTypedArrayConstructors) {
     });
 
     // Test that the length getter is never called.
-    assert.deepEqual(Object.defineProperty(new constructor([1, 2, 3]), "length", {
+    assert.compareArray(Object.defineProperty(new constructor([1, 2, 3]), "length", {
         get() {
             throw new Error("length accessor called");
         }
@@ -269,7 +269,7 @@ var arr = new Uint16Array([1,2,3]);
 var old = Array.prototype[Symbol.iterator];
 
 Array.prototype[Symbol.iterator] = () => { throw new Error("unreachable"); };
-assert.deepEqual(arr.filter(v => true), arr);
+assert.compareArray(arr.filter(v => true), arr);
 
 // restore
 Array.prototype[Symbol.iterator] = old;
@@ -278,6 +278,6 @@ Array.prototype[Symbol.iterator] = old;
 // of filter. See https://bugzilla.mozilla.org/show_bug.cgi?id=1121936#c18
 // for more details.
 Object.defineProperty(Array.prototype, 0, {configurable: true, get: function() { return 1; }, set: function() { this.b = 1; }});
-assert.deepEqual(new Uint16Array([1,2,3]).filter(v => true), new Uint16Array([1,2,3]));
+assert.compareArray(new Uint16Array([1,2,3]).filter(v => true), new Uint16Array([1,2,3]));
 delete Array.prototype[0];
 

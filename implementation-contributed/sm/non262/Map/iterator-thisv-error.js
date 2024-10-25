@@ -11,15 +11,11 @@ description: |
 esid: pending
 ---*/
 function test(fn, thisv) {
-  var message;
-  try {
-    fn.call(thisv);
-  } catch (e) {
-    message = e.message;
-  }
-
-  assert.sameValue(/^\w+ method called on incompatible.+/.test(message), true);
-  assert.sameValue(message.includes("std_"), false);
+  assertThrowsInstanceOfWithMessageCheck(
+    () => fn.call(thisv),
+    TypeError,
+    message =>
+      /^\w+ method called on incompatible.+/.test(message) && !message.includes("std_"));
 }
 
 for (var thisv of [null, undefined, false, true, 0, ""]) {
