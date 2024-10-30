@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [deepEqual.js, sm/non262-shell.js]
+includes: [deepEqual.js, sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 description: |

@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf - value of 'fromIndex' is a number (value is negative number)
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:

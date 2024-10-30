@@ -7,7 +7,7 @@ description: |
   %Iterator.prototype%.filter length value and descriptor.
 info: |
   17 ECMAScript Standard Built-in Objects
-includes: [propertyHelper.js, sm/non262-shell.js]
+includes: [propertyHelper.js, sm/non262-shell.js, sm/non262.js]
 features:
 - Iterator
 - Symbol.iterator

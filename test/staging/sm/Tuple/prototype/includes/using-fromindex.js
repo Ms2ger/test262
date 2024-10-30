@@ -4,7 +4,7 @@
 /*---
 info: |
   22.1.3.11 Tuple.prototype.includes ( searchElement [ , fromIndex ] )
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:

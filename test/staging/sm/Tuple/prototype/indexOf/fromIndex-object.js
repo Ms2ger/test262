@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf - value of 'fromIndex' is an Object, which has an own toString method
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:

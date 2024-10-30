@@ -6,7 +6,7 @@
 /*---
 flags:
 - onlyStrict
-includes: [deepEqual.js, sm/non262-shell.js]
+includes: [deepEqual.js, sm/non262-shell.js, sm/non262.js]
 description: |
   pending
 esid: pending

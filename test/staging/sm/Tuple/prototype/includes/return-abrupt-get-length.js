@@ -11,7 +11,7 @@ info: |
   ...
   2. Let len be ? ToLength(? Get(O, "length")).
   ...
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:

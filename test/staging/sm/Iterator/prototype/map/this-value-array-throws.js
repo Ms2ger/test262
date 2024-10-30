@@ -8,7 +8,7 @@ description: |
 features:
 - Iterator
 - Symbol.iterator
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 ---*/

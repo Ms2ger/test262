@@ -4,7 +4,7 @@
 /*---
 description: |
   Tuple.prototype.indexOf match on the first element, a middle element and the last element when 'fromIndex' is passed
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:

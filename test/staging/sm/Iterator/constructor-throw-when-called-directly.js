@@ -6,7 +6,7 @@ info: |
   Iterator constructor throws when called directly.
 
   Iterator is not enabled unconditionally
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:

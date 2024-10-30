@@ -13,7 +13,7 @@ info: |
   3. Return size.
 features:
 - Tuple
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 ---*/

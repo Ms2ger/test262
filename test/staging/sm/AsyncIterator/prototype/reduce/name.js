@@ -4,7 +4,7 @@
 /*---
 description: |
   `name` property of AsyncIterator.prototype.reduce.
-includes: [sm/non262-shell.js]
+includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
 features:
