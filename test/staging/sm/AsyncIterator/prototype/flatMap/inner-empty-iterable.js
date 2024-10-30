@@ -1,19 +1,28 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.flatMap skips empty inner iterables.
+info: |
+  Iterator Helpers proposal 2.1.6.7 1. Repeat,
+    ...
+    k. Repeat, while innerAlive is true,
+      ...
+      v. Let innerComplete be IteratorComplete(innerNext).
+      ...
+      vii. If innerComplete is true, set innerAlive to false.
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
+//
+//
 async function* gen(values) {
   yield* values;
 }

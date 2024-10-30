@@ -2,6 +2,7 @@
  * Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/licenses/publicdomain/
  */
+
 /*---
 includes: [compareArray.js, sm/non262-RegExp-shell.js, sm/non262-shell.js]
 flags:

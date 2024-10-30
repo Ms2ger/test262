@@ -1,19 +1,22 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
+esid: pending
+description: |
+  `take` and `drop` throw eagerly when passed values that can't be converted to numbers.
+info: |
+  Iterator Helpers proposal 2.1.6.4 and 2.1.6.5
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
+//
+//
 async function* gen() {}
 const iter = gen();
 const methods = [

@@ -1,19 +1,22 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.flatMap innerIterator can be a generator.
+info: |
+  Iterator Helpers proposal 2.1.6.7
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
+//
+//
 async function* gen() {
   yield 1;
   yield 2;

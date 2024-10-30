@@ -1,19 +1,23 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-//
-//
-
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype% methods work even if the global Symbol has been clobbered.
+info: |
+  Iterator Helpers proposal 2.1.6
+features:
+- AsyncIterator
+- Symbol.asyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+//
+//
+
 Symbol = undefined;
 assertThrowsInstanceOf(() => Symbol.asyncIterator, TypeError);
 

@@ -2,15 +2,19 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+description: |
+  The `length` property of Iterator.from.
+info: |
+  ES7 section 17: Unless otherwise specified, the length property of a built-in
+  Function object has the attributes { [[Writable]]: false, [[Enumerable]]:
+  false, [[Configurable]]: true }.
+
+    Iterator is not enabled unconditionally
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:
 - Iterator
-info: |
-  Iterator is not enabled unconditionally
-description: |
-  pending
 esid: pending
 ---*/
 const propDesc = Reflect.getOwnPropertyDescriptor(Iterator.from, 'length');

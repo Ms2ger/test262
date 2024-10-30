@@ -1,19 +1,25 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.take returns if the iterator is done.
+info: |
+  Iterator Helpers proposal 2.1.6.4 2. Repeat,
+    ...
+    c. Let next be ? Await(? IteratorNext(iterated, lastValue)).
+    d. If ? IteratorComplete(next) is false, return undefined.
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
+//
+//
 async function* gen(values) {
   yield* values;
 }

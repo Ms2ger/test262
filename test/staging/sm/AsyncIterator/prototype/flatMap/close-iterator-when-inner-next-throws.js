@@ -1,19 +1,26 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.flatMap closes the iterator when IteratorNext throws.
+info: |
+  Iterator Helpers proposal 2.1.6.7 1. Repeat,
+    ...
+    k. Repeat, while innerAlive is true,
+      i. Let innerNextPromise be IteratorNext(innerIterator).
+      ii. IfAbruptCloseAsyncIterator(innerNextPromise, iterated).
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
+//
+//
 class TestIterator extends AsyncIterator {
   async next() {
     return {done: false, value: 0};

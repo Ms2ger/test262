@@ -1,17 +1,20 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.drop.name value and descriptor.
+info: |
+  17 ECMAScript Standard Built-in Objects
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
 assert.sameValue(AsyncIterator.prototype.drop.name, 'drop');
 
 const propertyDescriptor = Reflect.getOwnPropertyDescriptor(AsyncIterator.prototype.drop, 'name');

@@ -1,20 +1,26 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
-includes: [sm/non262-shell.js]
-flags:
-- noStrict
+esid: pending
+description: |
+  %AsyncIterator.prototype%.drop returns if the iterator is done.
+info: |
+  Iterator Helpers proposal 2.1.6.5 1. Repeat, while remaining > 0,
+    ...
+    b. Let next be ? Await(? IteratorStep(iterated)).
+    c. If ? IteratorComplete(next) is true, return undefined.
 features:
 - AsyncIterator
 - Iterator
-description: |
-  pending
-esid: pending
+- iterator-helpers
+includes: [sm/non262-shell.js]
+flags:
+- noStrict
 ---*/
+
+//
+//
 class TestIterator extends AsyncIterator {
   counter = 0;
   async next() {

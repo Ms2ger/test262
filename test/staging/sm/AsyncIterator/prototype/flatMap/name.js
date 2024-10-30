@@ -2,14 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.flatMap.name value and descriptor.
+info: |
+  17 ECMAScript Standard Built-in Objects
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
 assert.sameValue(AsyncIterator.prototype.flatMap.name, 'flatMap');
 

@@ -1,19 +1,25 @@
 // Copyright (C) 2024 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-
-//
-//
 /*---
+esid: pending
+description: |
+  %AsyncIterator.prototype%.flatMap closes the iterator and throws when mapped isn't iterable.
+info: |
+  Iterator Helpers proposal 2.1.6.7 1. Repeat,
+    ...
+    h. Let innerIterator be GetIterator(mapped, async).
+    i. IfAbruptCloseAsyncIterator(innerIterator, iterated).
+features:
+- AsyncIterator
+- iterator-helpers
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
-features:
-- AsyncIterator
-description: |
-  pending
-esid: pending
 ---*/
+
+//
+//
 class NotIterable {
   async next() {
     return {done: true};

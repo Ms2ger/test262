@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+description: |
+  `name` property of AsyncIterator.prototype.some.
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
 features:
 - AsyncIterator
-description: |
-  pending
 esid: pending
 ---*/
 const propDesc = Reflect.getOwnPropertyDescriptor(AsyncIterator.prototype.some, 'name');
