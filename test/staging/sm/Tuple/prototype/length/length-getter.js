@@ -3,8 +3,6 @@
 
 /*---
 esid: sec-get-%tuple%.prototype.length
-description: |
-""
 info: |
   get %Tuple%.prototype.length
 

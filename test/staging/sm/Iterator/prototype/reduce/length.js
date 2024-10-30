@@ -9,7 +9,7 @@ info: |
   Function object has the attributes { [[Writable]]: false, [[Enumerable]]:
   false, [[Configurable]]: true }.
 
-    Iterator is not enabled unconditionally
+  Iterator is not enabled unconditionally
 includes: [sm/non262-shell.js]
 flags:
 - noStrict

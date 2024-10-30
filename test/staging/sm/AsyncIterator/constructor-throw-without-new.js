@@ -5,7 +5,7 @@
 info: |
   AsyncIterator constructor throws when called without new.
 
-    AsyncIterator is not enabled unconditionally
+  AsyncIterator is not enabled unconditionally
 includes: [sm/non262-shell.js]
 flags:
 - noStrict

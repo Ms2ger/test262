@@ -5,7 +5,7 @@
 info: |
   Descriptor property of Iterator.prototype.forEach
 
-    Iterator is not enabled unconditionally
+  Iterator is not enabled unconditionally
 includes: [sm/non262-shell.js]
 flags:
 - noStrict

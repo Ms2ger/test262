@@ -5,7 +5,7 @@
 info: |
   The "length" property of AsyncIterator
 
-    AsyncIterator is not enabled unconditionally
+  AsyncIterator is not enabled unconditionally
 includes: [sm/non262-shell.js]
 flags:
 - noStrict

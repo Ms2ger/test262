@@ -2,8 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-get-%Tuple%.prototype-@@tostringtag
-description: |
-""
 info: |
   8.2.3.4 %Tuple%.prototype [ @@toStringTag ]
 

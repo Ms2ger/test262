@@ -5,7 +5,7 @@
 info: |
   The prototype of the AsyncIterator constructor is the intrinsic object %FunctionPrototype%.
 
-    AsyncIterator is not enabled unconditionally
+  AsyncIterator is not enabled unconditionally
 includes: [sm/non262-shell.js]
 flags:
 - noStrict
