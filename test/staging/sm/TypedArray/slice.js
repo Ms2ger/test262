@@ -31,7 +31,7 @@ for (var constructor of anyTypedArrayConstructors) {
     if (typeof newGlobal === "function") {
         var slice = newGlobal()[constructor.name].prototype.slice;
         assert.compareArray(slice.call(new constructor([3, 2, 1]), 1),
-                            new constructor([2, 1]));
+                      new constructor([2, 1]));
     }
 
     // Throws if `this` isn't a TypedArray.

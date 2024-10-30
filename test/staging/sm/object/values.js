@@ -4,7 +4,7 @@
  */
 
 /*---
-includes: [sm/non262-object-shell.js, sm/non262-shell.js]
+includes: [compareArray.js, sm/non262-object-shell.js, sm/non262-shell.js]
 flags:
 - noStrict
 description: |
