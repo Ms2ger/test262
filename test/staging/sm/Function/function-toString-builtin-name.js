@@ -36,7 +36,7 @@ var nativeCode = RegExp([
 
 function assertFunctionName(fun, expected) {
     var match = nativeCode.exec(fun.toString());
-    assert.notSameValue(match, null, "No match for " + expected);
+    assert.sameValue(match === null, false, "No match for " + expected);
     assert.sameValue(match[2], expected, "Incorrect match for " + expected);
 }
 
