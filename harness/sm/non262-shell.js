@@ -215,14 +215,14 @@ if (!globalThis.Test262Error) {
   }
 }
 
-(function(global) {
+(function() {
   const undefined = void 0;
 
   /*
    * completesNormally(CODE) returns true if evaluating CODE (as eval
    * code) completes normally (rather than throwing an exception).
    */
-  global.completesNormally = function completesNormally(code) {
+  globalThis.completesNormally = function completesNormally(code) {
     try {
       eval(code);
       return true;
@@ -237,7 +237,7 @@ if (!globalThis.Test262Error) {
    * and returns false if it throws any other error or evaluates
    * successfully. For example: raises(TypeError)("0()") == true.
    */
-  global.raisesException = function raisesException(exception) {
+  globalThis.raisesException = function raisesException(exception) {
     return function (code) {
       try {
         eval(code);
@@ -254,7 +254,7 @@ if (!globalThis.Test262Error) {
    * of each property are deep_equal, and their 'length' properties are
    * equal. Equality on other types is ==.
    */
-    global.deepEqual = function deepEqual(a, b) {
+  globalThis.deepEqual = function deepEqual(a, b) {
     if (typeof a != typeof b)
       return false;
 
@@ -286,7 +286,7 @@ if (!globalThis.Test262Error) {
   }
 
   /** Make an iterator with a return method. */
-  global.makeIterator = function makeIterator(overrides) {
+  globalThis.makeIterator = function makeIterator(overrides) {
     var throwMethod;
     if (overrides && overrides.throw)
       throwMethod = overrides.throw;
@@ -308,7 +308,7 @@ if (!globalThis.Test262Error) {
   };
 
   /** Yield every permutation of the elements in some array. */
-  global.Permutations = function* Permutations(items) {
+  globalThis.Permutations = function* Permutations(items) {
     if (items.length == 0) {
       yield [];
     } else {
@@ -323,8 +323,8 @@ if (!globalThis.Test262Error) {
     }
   };
 
-  if (typeof global.assertThrowsValue === 'undefined') {
-    global.assertThrowsValue = function assertThrowsValue(f, val, msg) {
+  if (typeof globalThis.assertThrowsValue === 'undefined') {
+    globalThis.assertThrowsValue = function assertThrowsValue(f, val, msg) {
       var fullmsg;
       try {
         f();
@@ -341,8 +341,8 @@ if (!globalThis.Test262Error) {
     };
   }
 
-  if (typeof global.assertThrownErrorContains === 'undefined') {
-    global.assertThrownErrorContains = function assertThrownErrorContains(thunk, substr) {
+  if (typeof globalThis.assertThrownErrorContains === 'undefined') {
+    globalThis.assertThrownErrorContains = function assertThrownErrorContains(thunk, substr) {
       try {
         thunk();
       } catch (e) {
@@ -354,8 +354,8 @@ if (!globalThis.Test262Error) {
     };
   }
 
-  if (typeof global.assertThrowsInstanceOfWithMessageCheck === 'undefined') {
-    global.assertThrowsInstanceOfWithMessageCheck = function assertThrowsInstanceOfWithMessageCheck(f, ctor, check, msg) {
+  if (typeof globalThis.assertThrowsInstanceOfWithMessageCheck === 'undefined') {
+    globalThis.assertThrowsInstanceOfWithMessageCheck = function assertThrowsInstanceOfWithMessageCheck(f, ctor, check, msg) {
       var fullmsg;
       try {
         f();
@@ -380,25 +380,25 @@ if (!globalThis.Test262Error) {
     };
   }
 
-  if (typeof global.assertThrowsInstanceOf === 'undefined') {
-    global.assertThrowsInstanceOf = function assertThrowsInstanceOf(f, ctor, msg) {
+  if (typeof globalThis.assertThrowsInstanceOf === 'undefined') {
+    globalThis.assertThrowsInstanceOf = function assertThrowsInstanceOf(f, ctor, msg) {
       assertThrowsInstanceOfWithMessageCheck(f, ctor, _ => true, msg);
     };
   }
 
-  if (typeof global.assertThrowsInstanceOfWithMessage === 'undefined') {
-    global.assertThrowsInstanceOfWithMessage = function assertThrowsInstanceOfWithMessage(f, ctor, expected, msg) {
+  if (typeof globalThis.assertThrowsInstanceOfWithMessage === 'undefined') {
+    globalThis.assertThrowsInstanceOfWithMessage = function assertThrowsInstanceOfWithMessage(f, ctor, expected, msg) {
       assertThrowsInstanceOfWithMessageCheck(f, ctor, message => message === expected, msg);
     }
   }
 
-  if (typeof global.assertThrowsInstanceOfWithMessageContains === 'undefined') {
-    global.assertThrowsInstanceOfWithMessageContains = function assertThrowsInstanceOfWithMessageContains(f, ctor, substr, msg) {
+  if (typeof globalThis.assertThrowsInstanceOfWithMessageContains === 'undefined') {
+    globalThis.assertThrowsInstanceOfWithMessageContains = function assertThrowsInstanceOfWithMessageContains(f, ctor, substr, msg) {
       assertThrowsInstanceOfWithMessageCheck(f, ctor, message => message.indexOf(substr) !== -1, msg);
     }
   }
 
-  global.assertDeepEq = (function(){
+  globalThis.assertDeepEq = (function(){
     var call = Function.prototype.call,
       Array_isArray = Array.isArray,
       Array_includes = call.bind(Array.prototype.includes),
@@ -584,4 +584,4 @@ if (!globalThis.Test262Error) {
     };
   })();
 
-})(globalThis);
+})();
