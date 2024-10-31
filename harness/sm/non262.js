@@ -1,22 +1,13 @@
+/*---
+defines: [printBugNumber, inSection, printStatus, writeHeaderToLog,
+  assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, newGlobal, print, assertEq, reportCompare, reportMatch, createIsHTMLDDA, createExternalArrayBuffer,
+  enableGeckoProfilingWithSlowAssertions, enableGeckoProfiling, disableGeckoProfiling]
+---*/
+
 function printBugNumber() {}
 function inSection() {}
 function printStatus() {}
 function writeHeaderToLog() {}
-function assertThrowsInstanceOf(f, t) {
-  assert.throws(t, f)
-}
-function assertThrowsValue(f, val, msg) {
-  try {
-    f();
-  } catch (exc) {
-    assert.sameValue(exc, val, "Assertion failed: expected exception " + val + ", got " + exc)
-    return;
-  }
-  let fullmsg = "Assertion failed: expected exception " + val + ", no exception thrown";
-  if (msg !== undefined)
-    fullmsg += " - " + msg;
-  throw new Test262Error(fullmsg);
-}
 
 function assertThrownErrorContains(f, substr) {
   try {
@@ -46,18 +37,12 @@ function assertThrowsInstanceOfWithMessageCheck(f, ctor, _check, msg) {
   throw new Error(fullmsg);
 }
 
-// function assertEqArray() {
-
-//   // TODO
-// }
 if (globalThis.newGlobal === undefined) {
   globalThis.newGlobal = function() {
     return $262.createRealm().global
   }
 }
 function print(...args) {
-  // console.log(... args)
-  // TODO
 }
 function assertEq(...args) {
   assert.sameValue(...args)
