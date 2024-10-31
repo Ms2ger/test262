@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*---
 defines: [assertFalse, assertTrue, assertNotEq, assertIteratorResult, assertIteratorNext, assertIteratorDone]
+allow_unused: True
 ---*/
 
 function assertFalse(a) { assertEq(a, false) }

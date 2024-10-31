@@ -1,5 +1,6 @@
 /*---
 defines: [assertSetContainsExactOrderedItems, SetLike, SetIteratorLike, LoggingProxy]
+allow_unused: True
 ---*/
 (function(global) {
   // Save the primordial values.

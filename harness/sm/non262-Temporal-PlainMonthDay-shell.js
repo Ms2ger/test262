@@ -1,5 +1,6 @@
 /*---
 defines: [ISOFields, assertSameISOFields]
+allow_unused: True
 ---*/
 
 function ISOFields(monthDay) {

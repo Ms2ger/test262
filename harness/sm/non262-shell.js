@@ -6,6 +6,7 @@
 
 /*---
 defines: [completesNormally, raisesException, deepEqual, makeIterator, Permutations, assertThrowsValue, assertThrownErrorContains, assertThrowsInstanceOfWithMessageCheck, assertThrowsInstanceOf, assertThrowsInstanceOfWithMessage, assertThrowsInstanceOfWithMessageContains, assertDeepEq]
+allow_unused: True
 ---*/
 
 (function() {

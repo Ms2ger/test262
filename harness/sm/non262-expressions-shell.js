@@ -4,6 +4,7 @@
 
 /*---
 defines: [testDestructuringArrayDefault, formatArray, toSource]
+allow_unused: True
 ---*/
 
 (function(global) {

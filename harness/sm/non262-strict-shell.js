@@ -6,6 +6,7 @@
 
 /*---
 defines: [testLenientAndStrict, parsesSuccessfully, parseRaisesException, returns]
+allow_unused: True
 ---*/
 (function(global) {
 
@@ -18,7 +19,7 @@ defines: [testLenientAndStrict, parsesSuccessfully, parseRaisesException, return
    * in loose mode, but fails in strict mode.
    */
   global.testLenientAndStrict = function testLenientAndStrict(code, lenient_pred, strict_pred) {
-    return (strict_pred("'use strict'; " + code) && 
+    return (strict_pred("'use strict'; " + code) &&
             lenient_pred(code));
   }
 

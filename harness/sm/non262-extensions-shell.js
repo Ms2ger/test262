@@ -5,6 +5,7 @@
 
 /*---
 defines: [testRegExp, clone_object_check]
+allow_unused: True
 ---*/
 
 (function(global) {
@@ -300,7 +301,7 @@ defines: [testRegExp, clone_object_check]
         }
       }
 
-      // Check that, apart from properties whose names are array indexes, 
+      // Check that, apart from properties whose names are array indexes,
       // the enumerable properties appear in the same order.
       var aNames = pa.map(function (pair) { return pair[1]; }).filter(notIndex);
       var bNames = pa.map(function (pair) { return pair[1]; }).filter(notIndex);

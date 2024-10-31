@@ -1,5 +1,6 @@
 /*---
 defines: [msPerHour, TZ_ADJUST, UTC_01_JAN_1900, UTC_01_JAN_2000, UTC_29_FEB_2000, UTC_01_JAN_2005, inTimeZone, withLocale, Month, assertDateTime, runDSTOffsetCachingTestsFraction]
+allow_unused: True
 ---*/
 
 /**

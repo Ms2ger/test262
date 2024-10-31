@@ -16,6 +16,8 @@ features:
 includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
+description: |
+  pending
 ---*/
 /* Section 8.2.3.2 */
 

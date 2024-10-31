@@ -1,5 +1,6 @@
 /*---
 defines: [assertNear]
+allow_unused: True
 ---*/
 
 // The nearest representable values to +1.0.

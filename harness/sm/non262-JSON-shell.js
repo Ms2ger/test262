@@ -1,5 +1,6 @@
 /*---
 defines: [testJSON]
+allow_unused: True
 ---*/
 function testJSON(str, expectSyntaxError)
 {

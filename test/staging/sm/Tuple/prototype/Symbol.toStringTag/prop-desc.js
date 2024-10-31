@@ -14,6 +14,8 @@ features:
 includes: [sm/non262-shell.js, sm/non262.js]
 flags:
 - noStrict
+description: |
+  pending
 ---*/
 
 var TuplePrototype = Tuple.prototype;
