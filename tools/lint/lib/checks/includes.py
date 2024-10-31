@@ -28,8 +28,9 @@ class CheckIncludes(Check):
             CheckIncludes._cache[include_name] = {
                 'name': include_name,
                 'source': CheckIncludes._remove_frontmatter(source),
-                'defines': parsed['defines']
-            } if parsed else None
+                'defines': parsed['defines'],
+                'allow_unused': parsed.get('allow_unused', False),
+            }
 
         return CheckIncludes._cache.get(include_name)
 
@@ -62,8 +63,9 @@ class CheckIncludes(Check):
         without_frontmatter = self._remove_frontmatter(source)
 
         for harness_file in harness_files:
-            if not harness_file:
+            if harness_file['allow_unused']:
                 continue
+
             if self._has_reference(without_frontmatter, harness_file['defines']):
                 continue
 
