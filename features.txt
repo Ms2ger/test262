@@ -122,6 +122,7 @@ Iterator
 Record
 ReadableStream
 AsyncIterator
+Intl
 
 ## Standard language features
 #
