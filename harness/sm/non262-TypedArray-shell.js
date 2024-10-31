@@ -1,3 +1,6 @@
+/*---
+defines: [typedArrayConstructors, sharedTypedArrayConstructors, anyTypedArrayConstructors, isSharedConstructor, isFloatConstructor, isUnsignedConstructor]
+---*/
 (function(global) {
     "use strict";
 

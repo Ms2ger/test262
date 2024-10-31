@@ -1,3 +1,7 @@
+/*---
+defines: [ISOFields, assertSameISOFields]
+---*/
+
 function ISOFields(monthDay) {
   let re = /^(?<year>\d{4,6})-(?<month>\d{2})-(?<day>\d{2})\[u-ca=(?<calendar>[\w\-]+)\]$/;
 

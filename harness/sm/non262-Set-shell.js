@@ -1,3 +1,6 @@
+/*---
+defines: [assertSetContainsExactOrderedItems, SetLike, SetIteratorLike, LoggingProxy]
+---*/
 (function(global) {
   // Save the primordial values.
   const {Array, Error, Object, Proxy, Reflect, Set} = global;

@@ -125,11 +125,10 @@ assert.sameValue(log, "sp");
 // When calling a cross-compartment wrapper, receiver is rewrapped for the
 // target compartment.
 var g = newGlobal();
-// necessary in the browser
-if (!("assert" in g))
-    g.assert = assert;
+if (!("assert" in g) && "assert" in globalThis)
+    g.assert = assert;  // necessary when exporting to test262
 if (!("assert.sameValue" in g))
-    g.assert.sameValue = assert.sameValue;
+    g.assert.sameValue = assert.sameValue;  // necessary in the browser
 g.eval(`
      var hits;
      var obj = {
