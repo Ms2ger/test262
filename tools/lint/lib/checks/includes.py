@@ -22,10 +22,14 @@ class CheckIncludes(Check):
             with open(os.path.join('harness', include_name), 'r') as f:
                 source = f.read()
 
+            parsed = parse(source)
+            if not parsed:
+                raise Exception(f"Failed to parse {include_name}")
             CheckIncludes._cache[include_name] = {
                 'name': include_name,
                 'source': CheckIncludes._remove_frontmatter(source),
-                'defines': parse(source)['defines']
+                'defines': parsed['defines'],
+                'allow_unused': parsed.get('allow_unused', False),
             }
 
         return CheckIncludes._cache.get(include_name)
@@ -43,6 +47,7 @@ class CheckIncludes(Check):
         return [inc.strip() for inc in match.group('includes').split(',') if inc] if match else []
 
     def run(self, name, meta, source):
+        print(name)
         if not meta or 'includes' not in meta:
             return
 
@@ -50,6 +55,7 @@ class CheckIncludes(Check):
             return 'If present, the `includes` tag must use flow style, eg. includes: [include1.js, include2.js]'
 
         harness_files = [self._load(name) for name in meta['includes']]
+        # print(f"{harness_files=}")
 
         if len(harness_files) == 0:
             return 'If present, the `includes` tag must have at least one member'
@@ -57,6 +63,9 @@ class CheckIncludes(Check):
         without_frontmatter = self._remove_frontmatter(source)
 
         for harness_file in harness_files:
+            if harness_file['allow_unused']:
+                continue
+
             if self._has_reference(without_frontmatter, harness_file['defines']):
                 continue
 
@@ -67,6 +76,7 @@ class CheckIncludes(Check):
                 if other_harness_file == harness_file:
                     continue
 
+                # print(f"{other_harness_file=} {harness_file=}")
                 if self._has_reference(other_harness_file['source'], harness_file['defines']):
                     break
             else:
